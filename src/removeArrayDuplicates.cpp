@@ -11,9 +11,28 @@ ERROR CASES: Return NULL for invalid inputs.
 NOTES: Don't create new array, try to change the input array.
 */
 
-#include <stdio.h>
-
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
 void * removeArrayDuplicates(int *Arr, int len)
 {
-	return NULL;
+	int *a, j = 0,i;
+	if (Arr == NULL)
+		return NULL;
+	if (len>0)
+	{
+		a = (int*)calloc(10, sizeof(int));
+		for (i = 0; i<len; i++)
+		{
+			a[Arr[i]]++;
+			if (a[Arr[i]] == 1)
+			{
+				Arr[j] = Arr[i];
+				j++;
+			}
+		}
+		return Arr;
+	}
+	else if (len <= 0)
+		return NULL;
 }
